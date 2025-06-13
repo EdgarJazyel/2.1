@@ -12,6 +12,7 @@
       background: #0b0b0b;
       color: #f0f0f0;
     }
+
     header {
       background: #1a1a1a;
       padding: 15px 30px;
@@ -19,12 +20,14 @@
       justify-content: space-between;
       align-items: center;
     }
+
     header h1 {
       color: #f3bf00;
       margin: 0;
       font-weight: 900;
       font-size: 1.8rem;
     }
+
     nav a {
       color: #f3bf00;
       margin: 0 15px;
@@ -32,9 +35,11 @@
       font-weight: bold;
       transition: color 0.3s;
     }
+
     nav a:hover {
       color: #fff;
     }
+
     main {
       padding: 20px 30px;
       max-width: 1000px;
@@ -42,14 +47,16 @@
       background: #121212;
       border-radius: 8px;
     }
+
     section {
       margin-bottom: 40px;
     }
+
     .hidden {
       display: none;
     }
 
-    /* Estilo para el simulador */
+    /* Estilos generales */
     form input[type="text"],
     form input[type="number"],
     form input[type="email"],
@@ -84,7 +91,8 @@
       background: #d4a800;
     }
 
-    #cotizaciones p {
+    #cotizaciones p,
+    #resultadosSimulacion pre {
       background: #222;
       padding: 10px;
       border-radius: 5px;
@@ -108,16 +116,12 @@
     }
 
     /* Sección operaciones */
-    #resultados pre {
-      background: #222;
-      padding: 10px;
-      border-radius: 5px;
-      overflow-x: auto;
+    #botonesSimulacion {
+      margin-bottom: 15px;
     }
 
-    /* Contacto */
-    textarea {
-      resize: vertical;
+    #botonesSimulacion button {
+      margin-right: 10px;
     }
   </style>
 </head>
@@ -193,14 +197,20 @@
 
   <!-- OPERACIONES -->
   <section id="operaciones" class="hidden">
-    <h2>Operaciones Realizadas (Cumple con la Rúbrica)</h2>
-    <div id="resultados"></div>
+    <h2>Centro de Operaciones - Laboratorio Lamborghini</h2>
+    <p>Ejecuta simulaciones avanzadas con datos del mundo automotriz.</p>
+
+    <div id="botonesSimulacion">
+      <button onclick="ejecutarSimulacion()">Ejecutar Simulación</button>
+      <button onclick="reiniciarDatos()">Reiniciar Datos</button>
+    </div>
+
+    <div id="resultadosSimulacion"></div>
   </section>
 </main>
 
 <!-- Carga de librería externa -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> 
-
 <!-- Código JS principal -->
 <script src="script.js"></script>
 

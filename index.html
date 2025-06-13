@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lamborghini - Simulador y Contacto</title>
+  <title>Lamborghini Temerario</title>
   <style>
     /* Diseño Lamborghini: fondo oscuro, letras claras, elegante */
     body {
@@ -22,14 +22,14 @@
     }
 
     header h1 {
-      color: #f3bf00;
+      color: #e60000; /* rojo Lamborghini Temerario */
       margin: 0;
       font-weight: 900;
       font-size: 1.8rem;
     }
 
     nav a {
-      color: #f3bf00;
+      color: #e60000;
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
@@ -56,10 +56,10 @@
       display: none;
     }
 
-    /* Estilos generales */
-    form input[type="text"],
-    form input[type="number"],
-    form input[type="email"],
+    /* Estilo para simulador */
+    form input[type=text],
+    form input[type=number],
+    form input[type=email],
     form textarea {
       width: 100%;
       padding: 10px;
@@ -73,26 +73,25 @@
       display: block;
       margin-top: 10px;
       font-weight: 700;
-      color: #f3bf00;
+      color: #e60000;
     }
 
     form button {
-      background: #f3bf00;
+      background: #e60000;
       border: none;
       padding: 10px 20px;
       cursor: pointer;
       font-weight: 700;
-      color: #0b0b0b;
+      color: #fff;
       margin-top: 15px;
       border-radius: 4px;
     }
 
     form button:hover {
-      background: #d4a800;
+      background: #ff1a1a;
     }
 
-    #cotizaciones p,
-    #resultadosSimulacion pre {
+    #cotizaciones p {
       background: #222;
       padding: 10px;
       border-radius: 5px;
@@ -112,7 +111,7 @@
       height: 140px;
       object-fit: cover;
       border-radius: 8px;
-      border: 2px solid #f3bf00;
+      border: 2px solid #e60000;
     }
 
     /* Sección operaciones */
@@ -122,13 +121,37 @@
 
     #botonesSimulacion button {
       margin-right: 10px;
+      background-color: #e60000;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #botonesSimulacion button:hover {
+      background-color: #ff1a1a;
+    }
+
+    #resultadosSimulacion {
+      background: #1e1e1e;
+      padding: 15px;
+      border-radius: 6px;
+      min-height: 120px;
+      white-space: pre-wrap;
+      font-family: monospace;
+    }
+
+    /* Contacto */
+    textarea {
+      resize: vertical;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Lamborghini</h1>
+  <h1>Temerario Lab</h1>
   <nav>
     <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
     <a href="#" onclick="mostrarSeccion('simulador')">Simulador</a>
@@ -141,24 +164,21 @@
 <main>
   <!-- INICIO -->
   <section id="inicio">
-    <h2>Bienvenido al Mundo Lamborghini</h2>
-    <p>Explora la potencia, el diseño y la elegancia de los autos Lamborghini.</p>
+    <h2>Bienvenido al Laboratorio del Lamborghini Temerario</h2>
+    <p>Explora las funciones avanzadas de uno de los autos más potentes del mundo.</p>
     <div class="inicio-imgs">
-      <img src="https://cdn.pixabay.com/photo/2018/02/13/17/34/lamborghini-3151021_1280.jpg"  alt="Lamborghini 1">
-      <img src="https://cdn.pixabay.com/photo/2019/04/28/19/13/lamborghini-4162147_1280.jpg"  alt="Lamborghini 2">
-      <img src="https://cdn.pixabay.com/photo/2020/05/13/10/20/lamborghini-5167946_1280.jpg"  alt="Lamborghini 3">
-      <img src="https://cdn.pixabay.com/photo/2017/08/02/13/31/lamborghini-2574951_1280.jpg"  alt="Lamborghini 4">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Lamborghini_Temerario_Geneva_Motor_Show_2024_1.jpg/1200px-Lamborghini_Temerario_Geneva_Motor_Show_2024_1.jpg"  alt="Lamborghini Temerario">
     </div>
   </section>
 
   <!-- SIMULADOR -->
   <section id="simulador" class="hidden">
-    <h2>Simulador de Cotización Lamborghini</h2>
+    <h2>Simulador de Cotización Lamborghini Temerario</h2>
     <form id="formularioCotizacion">
       <label for="nombre">Nombre completo</label>
       <input type="text" id="nombre" placeholder="Tu nombre completo" required />
       <label for="modelo">Modelo Lamborghini</label>
-      <input type="text" id="modelo" placeholder="Ejemplo: Aventador" required />
+      <input type="text" id="modelo" placeholder="Ejemplo: Temerario" required />
       <label>Extras</label>
       <input type="checkbox" id="extra1" value="GPS" /> <label for="extra1" style="display:inline;">GPS</label><br />
       <input type="checkbox" id="extra2" value="Asientos de cuero" /> <label for="extra2" style="display:inline;">Asientos de cuero</label><br />
@@ -189,20 +209,22 @@
 
   <!-- INFORMACIÓN -->
   <section id="info" class="hidden">
-    <h2>Sobre Lamborghini</h2>
-    <p>Lamborghini es un fabricante italiano de autos deportivos de lujo, conocido por su diseño agresivo y rendimiento extremo.</p>
-    <p>Fundado en 1963, Lamborghini ha sido símbolo de exclusividad y tecnología avanzada.</p>
-    <img src="https://cdn.pixabay.com/photo/2017/02/16/20/56/lamborghini-2071640_1280.jpg"  alt="Lamborghini Logo" style="width:300px; border-radius:10px; margin-top:15px;">
+    <h2>Sobre el Lamborghini Temerario</h2>
+    <p>El Lamborghini Temerario es un superdeportivo italiano con motor V8 híbrido, diseñado para ofrecer un rendimiento extremo y tecnología puntera.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Lamborghini_Temerario_Geneva_Motor_Show_2024_1.jpg/1200px-Lamborghini_Temerario_Geneva_Motor_Show_2024_1.jpg" 
+         alt="Lamborghini Temerario" style="width: 100%; max-width: 600px; border-radius: 10px;">
   </section>
 
   <!-- OPERACIONES -->
   <section id="operaciones" class="hidden">
-    <h2>Centro de Operaciones - Laboratorio Lamborghini</h2>
-    <p>Ejecuta simulaciones avanzadas con datos del mundo automotriz.</p>
+    <h2>Centro de Control - Lamborghini Temerario</h2>
+    <p>Accede a simulaciones técnicas del sistema de alto rendimiento.</p>
 
     <div id="botonesSimulacion">
-      <button onclick="ejecutarSimulacion()">Ejecutar Simulación</button>
-      <button onclick="reiniciarDatos()">Reiniciar Datos</button>
+      <button onclick="simularMotor()">Encender Motor</button>
+      <button onclick="verSensores()">Leer Sensores</button>
+      <button onclick="calcularRendimiento()">Calcular Rendimiento</button>
+      <button onclick="limpiarDatos()">Limpiar Consola</button>
     </div>
 
     <div id="resultadosSimulacion"></div>
@@ -211,7 +233,8 @@
 
 <!-- Carga de librería externa -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> 
-<!-- Código JS principal -->
+
+<!-- Carga del script externo -->
 <script src="script.js"></script>
 
 </body>

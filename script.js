@@ -146,3 +146,116 @@ function enviarContacto(event) {
 
 // Mostrar inicio al cargar
 mostrarSeccion('inicio');
+// === MOSTRAR RESULTADOS VISUALES EN LA PÁGINA ===
+function mostrarResultadosRubrica() {
+  // Variables básicas
+  var nombre = "Juan";
+  var edad = 25;
+  var esMayorDeEdad = true;
+
+  // Escape de caracteres
+  var mensaje = "Hola \"usuario\", bienvenido.";
+
+  // Operadores matemáticos
+  var a = 10, b = 3;
+  var suma = a + b;
+  var resta = a - b;
+  var multiplicacion = a * b;
+  var division = a / b;
+  var modulo = a % b;
+
+  // Estructuras de control
+  var resultadoIfElse = "";
+  if (edad >= 18) {
+    resultadoIfElse = nombre + " es mayor de edad.";
+  } else {
+    resultadoIfElse = nombre + " es menor de edad.";
+  }
+
+  var resultadoFor = "";
+  for (var i = 0; i < 5; i++) {
+    resultadoFor += i + ", ";
+  }
+  resultadoFor = resultadoFor.slice(0, -2); // quitar última coma
+
+  var arrayEjemplo = ["Lamborghini", "Ferrari", "Porsche"];
+  var resultadoForIn = "";
+  for (var key in arrayEjemplo) {
+    resultadoForIn += key + ": " + arrayEjemplo[key] + "<br>";
+  }
+
+  // Cadenas
+  var cadena = "Bienvenido a Lamborghini";
+  var mayusculas = cadena.toUpperCase();
+  var minusculas = cadena.toLowerCase();
+  var charAt = cadena.charAt(0);
+  var substring = cadena.substring(0, 9);
+  var split = cadena.split(" ");
+  var concatenacion = "Modelo: " + "Aventador";
+
+  // Arreglos
+  var colores = ["Rojo", "Negro"];
+  colores.push("Amarillo"); // Agregar al final
+  colores.unshift("Verde"); // Agregar al inicio
+  colores.pop(); // Eliminar último
+  colores.shift(); // Eliminar primero
+  var longitud = colores.length;
+  var join = colores.join(", ");
+  var reverse = colores.reverse().join(", ");
+
+  // Números
+  var numeroValido = isNaN("123") ? "No es número" : "Es número válido";
+  var valorNaN = NaN;
+  var esNaN = isNaN(valorNaN);
+
+  // Mostrar resultados en pantalla
+  var output = `
+    <h3>Variables y Tipos</h3>
+    <pre>
+nombre = "${nombre}"
+edad = ${edad}
+esMayorDeEdad = ${esMayorDeEdad}
+escape = "${mensaje}"
+    </pre>
+
+    <h3>Operadores</h3>
+    <pre>
+suma = ${suma}
+resta = ${resta}
+multiplicación = ${multiplicacion}
+división = ${division}
+módulo = ${modulo}
+    </pre>
+
+    <h3>Estructuras de Control</h3>
+    <p><strong>If-else:</strong> ${resultadoIfElse}</p>
+    <p><strong>For:</strong> ${resultadoFor}</p>
+    <p><strong>For...in:</strong><br>${resultadoForIn}</p>
+
+    <h3>Cadenas</h3>
+    <pre>
+toUpperCase: ${mayusculas}
+toLowerCase: ${minusculas}
+charAt(0): ${charAt}
+substring(0,9): ${substring}
+split(" "): ${split.join(", ")}
+concatenación: ${concatenacion}
+    </pre>
+
+    <h3>Arreglos</h3>
+    <pre>
+push(), pop(), shift(), unshift()
+longitud: ${longitud}
+join(): ${join}
+reverse(): ${reverse}
+    </pre>
+
+    <h3>Números</h3>
+    <pre>
+isNaN("123"): ${numeroValido}
+isNaN(NaN): ${esNaN ? "Es NaN" : "No es NaN"}
+    </pre>
+  `;
+
+  document.getElementById("resultados").innerHTML = output;
+}

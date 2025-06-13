@@ -9,7 +9,7 @@ function mostrarSeccion(id) {
 // Variables para cotizaciones
 var cotizaciones = [];
 
-// Función cotizar que cumple con la rúbrica
+// Función cotizar
 function cotizar() {
   var nombre = document.getElementById('nombre').value;
   var modelo = document.getElementById('modelo').value;
@@ -44,18 +44,13 @@ function cotizar() {
 
   // push, pop, shift, unshift, reverse
   extrasList.push("Seguro básico");
-  extrasList.unshift("Paquete VIP"); // nuevo
+  extrasList.unshift("Paquete VIP");
   var ultimoExtra = extrasList.pop();
-  extrasList.shift(); // nuevo
-
-  // Uso de for...in
-  var resultadoForIn = "";
-  for (var key in extrasList) {
-    resultadoForIn += "Índice: " + key + " → " + extrasList[key] + "<br>";
-  }
+  extrasList.shift();
+  extrasList.reverse();
 
   // Cálculo con operadores matemáticos, lógicos y relacionales
-  var precioBase = 150000; // ejemplo precio base
+  var precioBase = 150000;
   var precioExtras = extrasList.length * 8000;
   var precioTotal = (precioBase + precioExtras) * cantidad;
 
@@ -144,16 +139,14 @@ function enviarContacto(event) {
   return false;
 }
 
-// Mostrar inicio al cargar
-mostrarSeccion('inicio');
-// === MOSTRAR RESULTADOS VISUALES EN LA PÁGINA ===
+// === MOSTRAR RESULTADOS VISUALES DE LA RÚBRICA ===
 function mostrarResultadosRubrica() {
   // Variables básicas
   var nombre = "Juan";
   var edad = 25;
   var esMayorDeEdad = true;
 
-  // Escape de caracteres
+  // Escape de comillas
   var mensaje = "Hola \"usuario\", bienvenido.";
 
   // Operadores matemáticos
@@ -259,3 +252,7 @@ isNaN(NaN): ${esNaN ? "Es NaN" : "No es NaN"}
 
   document.getElementById("resultados").innerHTML = output;
 }
+
+// Mostrar inicio y resultados al cargar
+mostrarSeccion('inicio');
+mostrarResultadosRubrica();

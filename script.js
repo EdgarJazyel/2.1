@@ -96,7 +96,7 @@ function simularMotor() {
   var rpm = Math.floor(Math.random() * 9000) + 1000;
   var estado = rpm > 7000 ? "Alto Rendimiento" : "Estable";
   var tiempoArranque = (Math.random() * 2.5 + 2.0).toFixed(2);
-  var resultado = `🔥 Encendiendo motor V8 Híbrido...\n`;
+  var resultado = `Encendiendo motor V8 Híbrido...\n`;
   resultado += `RPM: ${rpm}\n`;
   resultado += `Estado: ${estado}\n`;
   resultado += `Tiempo de arranque: ${tiempoArranque}s\n`;
@@ -112,7 +112,7 @@ function verSensores() {
     bateria: Math.floor(Math.random() * 100) + "%",
     velocidad: Math.floor(Math.random() * 380)
   };
-  var resultado = `📡 Datos de sensores:\n`;
+  var resultado = ` Datos de sensores:\n`;
   for (var key in sensores) {
     resultado += `${key}: ${sensores[key]}\n`;
   }
@@ -126,7 +126,7 @@ function calcularRendimiento() {
   var consumo = (Math.random() * 20 + 5).toFixed(2);
   var categoria = kmh >= 350 ? "Supercar Extremo" : "Supercar";
 
-  var resultado = `⚙️ Análisis de rendimiento:\n`;
+  var resultado = `Análisis de rendimiento:\n`;
   resultado += `Velocidad máxima: ${kmh} km/h\n`;
   resultado += `Aceleración 0-100 km/h: ${aceleracion}s\n`;
   resultado += `Consumo: ${consumo} L/100km\n`;

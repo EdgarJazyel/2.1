@@ -3,43 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lamborghini Temerario</title>
+  <title>Lamborghini - Simulador y Contacto</title>
   <style>
     /* Diseño Lamborghini: fondo oscuro, letras claras, elegante */
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0b0b0b;
-      color: #f0f0f0;
+      margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0b0b0b; color: #f0f0f0;
     }
-
     header {
-      background: #1a1a1a;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background: #1a1a1a; padding: 15px 30px;
+      display: flex; justify-content: space-between; align-items: center;
     }
-
     header h1 {
       color: #e60000; /* rojo Lamborghini Temerario */
-      margin: 0;
-      font-weight: 900;
-      font-size: 1.8rem;
+      margin: 0; font-weight: 900; font-size: 1.8rem;
     }
-
     nav a {
-      color: #e60000;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
+      color: #e60000; margin: 0 15px; text-decoration: none; font-weight: bold;
       transition: color 0.3s;
     }
-
     nav a:hover {
       color: #fff;
     }
-
     main {
       padding: 20px 30px;
       max-width: 1000px;
@@ -47,78 +32,39 @@
       background: #121212;
       border-radius: 8px;
     }
-
     section {
       margin-bottom: 40px;
     }
+    .hidden { display: none; }
 
-    .hidden {
-      display: none;
-    }
-
-    /* Estilo para simulador */
-    form input[type=text],
-    form input[type=number],
-    form input[type=email],
-    form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      box-sizing: border-box;
-      border-radius: 4px;
+    form input[type=text], form input[type=number], form input[type=email], form textarea {
+      width: 100%; padding: 10px; margin: 8px 0; box-sizing: border-box; border-radius: 4px;
       border: none;
     }
-
     form label {
-      display: block;
-      margin-top: 10px;
-      font-weight: 700;
-      color: #e60000;
+      display: block; margin-top: 10px; font-weight: 700; color: #e60000;
     }
-
     form button {
-      background: #e60000;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      font-weight: 700;
-      color: #fff;
-      margin-top: 15px;
-      border-radius: 4px;
+      background: #e60000; border: none; padding: 10px 20px; cursor: pointer;
+      font-weight: 700; color: #fff; margin-top: 15px; border-radius: 4px;
     }
-
     form button:hover {
       background: #ff1a1a;
     }
-
     #cotizaciones p {
-      background: #222;
-      padding: 10px;
-      border-radius: 5px;
-      margin: 5px 0;
+      background: #222; padding: 10px; border-radius: 5px; margin: 5px 0;
     }
-
-    /* Imágenes en inicio */
     .inicio-imgs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
+      display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;
     }
-
     .inicio-imgs img {
-      width: 220px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 8px;
+      width: 220px; height: 140px; object-fit: cover; border-radius: 8px;
       border: 2px solid #e60000;
     }
-
     /* Sección operaciones */
     #botonesSimulacion {
       margin-bottom: 15px;
     }
-
     #botonesSimulacion button {
       margin-right: 10px;
       background-color: #e60000;
@@ -128,11 +74,9 @@
       border-radius: 5px;
       cursor: pointer;
     }
-
     #botonesSimulacion button:hover {
       background-color: #ff1a1a;
     }
-
     #resultadosSimulacion {
       background: #1e1e1e;
       padding: 15px;
@@ -141,7 +85,6 @@
       white-space: pre-wrap;
       font-family: monospace;
     }
-
     /* Contacto */
     textarea {
       resize: vertical;
@@ -167,13 +110,13 @@
     <h2>Bienvenido al Laboratorio del Lamborghini Temerario</h2>
     <p>Explora las funciones avanzadas de uno de los autos más potentes del mundo.</p>
     <div class="inicio-imgs">
-      <img src="https://raw.githubusercontent.com/EdgarJazyel/LAMBORGHINI-TEMERARIO/refs/heads/main/sketch1.webp"  alt="Lamborghini Temerario">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Lamborghini_Temerario_Geneva_Motor_Show_2024_1.jpg/1200px-Lamborghini_Temerario_Geneva_Motor_Show_2024_1.jpg"  alt="Lamborghini Temerario">
     </div>
   </section>
 
   <!-- SIMULADOR -->
   <section id="simulador" class="hidden">
-    <h2>Simulador de Cotización Lamborghini Temerario</h2>
+    <h2>Simulador de Cotización Lamborghini</h2>
     <form id="formularioCotizacion">
       <label for="nombre">Nombre completo</label>
       <input type="text" id="nombre" placeholder="Tu nombre completo" required />
@@ -210,15 +153,15 @@
   <!-- INFORMACIÓN -->
   <section id="info" class="hidden">
     <h2>Sobre el Lamborghini Temerario</h2>
-    <p>El Lamborghini Temerario es un superdeportivo italiano con motor V8 híbrido, diseñado para ofrecer un rendimiento extremo y tecnología puntera.</p>
+    <p>El Lamborghini Temerario es un superdeportivo italiano con motor V8 híbrido de 900 CV, diseñado para ofrecer un rendimiento extremo y tecnología puntera.</p>
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Lamborghini_Temerario_Geneva_Motor_Show_2024_1.jpg/1200px-Lamborghini_Temerario_Geneva_Motor_Show_2024_1.jpg" 
-         alt="Lamborghini Temerario" style="width: 100%; max-width: 600px; border-radius: 10px;">
+         alt="Lamborghini Temerario" style="width:100%; max-width: 600px; border-radius:10px;">
   </section>
 
   <!-- OPERACIONES -->
   <section id="operaciones" class="hidden">
     <h2>Centro de Control - Lamborghini Temerario</h2>
-    <p>Accede a simulaciones técnicas del sistema de alto rendimiento.</p>
+    <p>Accede a simulaciones avanzadas del sistema de alto rendimiento.</p>
 
     <div id="botonesSimulacion">
       <button onclick="simularMotor()">Encender Motor</button>
@@ -231,10 +174,10 @@
   </section>
 </main>
 
-<!-- Carga de librería externa -->
+<!-- Librería para generar PDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> 
 
-<!-- Carga del script externo -->
+<!-- Script externo -->
 <script src="script.js"></script>
 
 </body>

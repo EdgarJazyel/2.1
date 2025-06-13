@@ -9,7 +9,7 @@ function mostrarSeccion(id) {
 // Variables para cotizaciones
 var cotizaciones = [];
 
-// Función cotizar
+// === FUNCIONES DE COTIZACIÓN ===
 function cotizar() {
   var nombre = document.getElementById('nombre').value;
   var modelo = document.getElementById('modelo').value;
@@ -42,11 +42,9 @@ function cotizar() {
   if (document.getElementById('extra2').checked) extrasList.push(document.getElementById('extra2').value);
   if (document.getElementById('extra3').checked) extrasList.push(document.getElementById('extra3').value);
 
-  // push, pop, shift, unshift, reverse
+  // push, pop y reverse
   extrasList.push("Seguro básico");
-  extrasList.unshift("Paquete VIP");
   var ultimoExtra = extrasList.pop();
-  extrasList.shift();
   extrasList.reverse();
 
   // Cálculo con operadores matemáticos, lógicos y relacionales
@@ -78,7 +76,6 @@ function cotizar() {
   }
 }
 
-// Mostrar cotizaciones
 function mostrarCotizaciones() {
   var div = document.getElementById('cotizaciones');
   div.innerHTML = "";
@@ -88,13 +85,11 @@ function mostrarCotizaciones() {
   }
 }
 
-// Eliminar cotizaciones
 function eliminarCotizaciones() {
   cotizaciones = [];
   mostrarCotizaciones();
 }
 
-// Generar PDF con jsPDF
 function generarPDF() {
   if (cotizaciones.length === 0) {
     alert("No hay cotizaciones para generar PDF.");
@@ -122,7 +117,6 @@ function generarPDF() {
   doc.save("cotizaciones_lamborghini.pdf");
 }
 
-// Enviar contacto (simulado)
 function enviarContacto(event) {
   event.preventDefault();
   var nombre = document.getElementById('nombreContacto').value;
@@ -139,120 +133,88 @@ function enviarContacto(event) {
   return false;
 }
 
-// === MOSTRAR RESULTADOS VISUALES DE LA RÚBRICA ===
-function mostrarResultadosRubrica() {
-  // Variables básicas
-  var nombre = "Juan";
-  var edad = 25;
-  var esMayorDeEdad = true;
+// === SIMULACIÓN INTERACTIVA ===
+var historialSimulaciones = [];
 
-  // Escape de comillas
-  var mensaje = "Hola \"usuario\", bienvenido.";
+function ejecutarSimulacion() {
+  var resultadosDiv = document.getElementById("resultadosSimulacion");
+  resultadosDiv.innerHTML = "";
 
-  // Operadores matemáticos
-  var a = 10, b = 3;
-  var suma = a + b;
-  var resta = a - b;
-  var multiplicacion = a * b;
-  var division = a / b;
-  var modulo = a % b;
+  // Datos simulados
+  var modelos = ["Huracán", "Aventador", "Urus", "Gallardo"];
+  var velocidades = [];
+  for (var i = 0; i < 5; i++) {
+    velocidades.push(Math.floor(Math.random() * 380) + 200); // entre 200 y 380 km/h
+  }
+
+  // Cálculos
+  var velocidadMaxima = Math.max(...velocidades);
+  var velocidadMinima = Math.min(...velocidades);
+  var totalVelocidad = velocidades.reduce((a, b) => a + b, 0);
+  var promedioVelocidad = (totalVelocidad / velocidades.length).toFixed(2);
+
+  // Validación con isNaN
+  var valorPrueba = "350";
+  var esNumero = !isNaN(valorPrueba) ? "Sí es número" : "No es número";
+
+  // Manejo de cadenas
+  var modeloEjemplo = "Lamborghini Huracán Performante";
+  var modeloMayus = modeloEjemplo.toUpperCase();
+  var modeloResumen = modeloEjemplo.substring(0, 12) + "...";
+
+  // Manejo de arrays
+  var extras = ["Paquete aerodinámico", "Frenos cerámicos", "Interior Alcántara"];
+  extras.push("Asistencia de conducción");
+  extras.unshift("Paquete Track");
+  extras.shift(); // Eliminar primero
+  extras.pop(); // Eliminar último
+  extras.reverse();
 
   // Estructuras de control
-  var resultadoIfElse = "";
-  if (edad >= 18) {
-    resultadoIfElse = nombre + " es mayor de edad.";
+  var categoria;
+  if (velocidadMaxima >= 350) {
+    categoria = "Supercar Extremo";
+  } else if (velocidadMaxima >= 300) {
+    categoria = "Supercar Estándar";
   } else {
-    resultadoIfElse = nombre + " es menor de edad.";
+    categoria = "Deportivo Alto Rendimiento";
   }
 
-  var resultadoFor = "";
-  for (var i = 0; i < 5; i++) {
-    resultadoFor += i + ", ";
-  }
-  resultadoFor = resultadoFor.slice(0, -2); // quitar última coma
-
-  var arrayEjemplo = ["Lamborghini", "Ferrari", "Porsche"];
-  var resultadoForIn = "";
-  for (var key in arrayEjemplo) {
-    resultadoForIn += key + ": " + arrayEjemplo[key] + "<br>";
+  // For...in
+  var resultadoForIn = "<strong>Modelos probados:</strong><br>";
+  for (var key in modelos) {
+    resultadoForIn += "Índice " + key + ": " + modelos[key] + "<br>";
   }
 
-  // Cadenas
-  var cadena = "Bienvenido a Lamborghini";
-  var mayusculas = cadena.toUpperCase();
-  var minusculas = cadena.toLowerCase();
-  var charAt = cadena.charAt(0);
-  var substring = cadena.substring(0, 9);
-  var split = cadena.split(" ");
-  var concatenacion = "Modelo: " + "Aventador";
+  // Guardar en historial
+  historialSimulaciones.push({
+    fecha: new Date().toLocaleString(),
+    max: velocidadMaxima,
+    categoria: categoria
+  });
 
-  // Arreglos
-  var colores = ["Rojo", "Negro"];
-  colores.push("Amarillo"); // Agregar al final
-  colores.unshift("Verde"); // Agregar al inicio
-  colores.pop(); // Eliminar último
-  colores.shift(); // Eliminar primero
-  var longitud = colores.length;
-  var join = colores.join(", ");
-  var reverse = colores.reverse().join(", ");
-
-  // Números
-  var numeroValido = isNaN("123") ? "No es número" : "Es número válido";
-  var valorNaN = NaN;
-  var esNaN = isNaN(valorNaN);
-
-  // Mostrar resultados en pantalla
-  var output = `
-    <h3>Variables y Tipos</h3>
+  // Mostrar resultados
+  resultadosDiv.innerHTML += `
+    <h3>Simulación de Velocidades</h3>
     <pre>
-nombre = "${nombre}"
-edad = ${edad}
-esMayorDeEdad = ${esMayorDeEdad}
-escape = "${mensaje}"
-    </pre>
-
-    <h3>Operadores</h3>
-    <pre>
-suma = ${suma}
-resta = ${resta}
-multiplicación = ${multiplicacion}
-división = ${division}
-módulo = ${modulo}
-    </pre>
-
-    <h3>Estructuras de Control</h3>
-    <p><strong>If-else:</strong> ${resultadoIfElse}</p>
-    <p><strong>For:</strong> ${resultadoFor}</p>
-    <p><strong>For...in:</strong><br>${resultadoForIn}</p>
-
-    <h3>Cadenas</h3>
-    <pre>
-toUpperCase: ${mayusculas}
-toLowerCase: ${minusculas}
-charAt(0): ${charAt}
-substring(0,9): ${substring}
-split(" "): ${split.join(", ")}
-concatenación: ${concatenacion}
-    </pre>
-
-    <h3>Arreglos</h3>
-    <pre>
-push(), pop(), shift(), unshift()
-longitud: ${longitud}
-join(): ${join}
-reverse(): ${reverse}
-    </pre>
-
-    <h3>Números</h3>
-    <pre>
-isNaN("123"): ${numeroValido}
-isNaN(NaN): ${esNaN ? "Es NaN" : "No es NaN"}
+Modelo: ${modeloMayus}
+Resumen: ${modeloResumen}
+Velocidades registradas: ${velocidades.join(", ")}
+Velocidad máxima: ${velocidadMaxima} km/h
+Velocidad mínima: ${velocidadMinima} km/h
+Promedio: ${promedioVelocidad} km/h
+Categoría: ${categoria}
+Verificación numérica: "${valorPrueba}" → ${esNumero}
+Extras disponibles: ${extras.join(", ")}
+${resultadoForIn}
     </pre>
   `;
-
-  document.getElementById("resultados").innerHTML = output;
 }
 
-// Mostrar inicio y resultados al cargar
+function reiniciarDatos() {
+  document.getElementById("resultadosSimulacion").innerHTML = "";
+  historialSimulaciones = [];
+}
+
+// Mostrar inicio al cargar
 mostrarSeccion('inicio');
-mostrarResultadosRubrica();

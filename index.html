@@ -1,74 +1,128 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lamborghini - Simulador y Contacto</title>
-<style>
-  /* Diseño Lamborghini: fondo oscuro, letras claras, elegante */
-  body {
-    margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #0b0b0b; color: #f0f0f0;
-  }
-  header {
-    background: #1a1a1a; padding: 15px 30px;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  header h1 {
-    color: #f3bf00; /* amarillo Lamborghini */
-    margin: 0; font-weight: 900; font-size: 1.8rem;
-  }
-  nav a {
-    color: #f3bf00; margin: 0 15px; text-decoration: none; font-weight: bold;
-    transition: color 0.3s;
-  }
-  nav a:hover {
-    color: #fff;
-  }
-  main {
-    padding: 20px 30px;
-    max-width: 1000px;
-    margin: 20px auto;
-    background: #121212;
-    border-radius: 8px;
-  }
-  section {
-    margin-bottom: 40px;
-  }
-  .hidden { display: none; }
-  /* Estilo para el simulador */
-  form input[type=text], form input[type=number], form input[type=email], form textarea {
-    width: 100%; padding: 10px; margin: 8px 0; box-sizing: border-box; border-radius: 4px;
-    border: none;
-  }
-  form label {
-    display: block; margin-top: 10px; font-weight: 700; color: #f3bf00;
-  }
-  form button {
-    background: #f3bf00; border: none; padding: 10px 20px; cursor: pointer;
-    font-weight: 700; color: #0b0b0b; margin-top: 15px; border-radius: 4px;
-  }
-  form button:hover {
-    background: #d4a800;
-  }
-  #cotizaciones p {
-    background: #222; padding: 10px; border-radius: 5px; margin: 5px 0;
-  }
-  /* Imágenes en inicio */
-  .inicio-imgs {
-    display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;
-  }
-  .inicio-imgs img {
-    width: 220px; height: 140px; object-fit: cover; border-radius: 8px;
-    border: 2px solid #f3bf00;
-  }
-  /* Contacto */
-  textarea {
-    resize: vertical;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lamborghini - Simulador y Contacto</title>
+  <style>
+    /* Diseño Lamborghini: fondo oscuro, letras claras, elegante */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0b0b0b;
+      color: #f0f0f0;
+    }
+    header {
+      background: #1a1a1a;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      color: #f3bf00;
+      margin: 0;
+      font-weight: 900;
+      font-size: 1.8rem;
+    }
+    nav a {
+      color: #f3bf00;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    main {
+      padding: 20px 30px;
+      max-width: 1000px;
+      margin: 20px auto;
+      background: #121212;
+      border-radius: 8px;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    .hidden {
+      display: none;
+    }
+
+    /* Estilo para el simulador */
+    form input[type="text"],
+    form input[type="number"],
+    form input[type="email"],
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border-radius: 4px;
+      border: none;
+    }
+
+    form label {
+      display: block;
+      margin-top: 10px;
+      font-weight: 700;
+      color: #f3bf00;
+    }
+
+    form button {
+      background: #f3bf00;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: 700;
+      color: #0b0b0b;
+      margin-top: 15px;
+      border-radius: 4px;
+    }
+
+    form button:hover {
+      background: #d4a800;
+    }
+
+    #cotizaciones p {
+      background: #222;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 5px 0;
+    }
+
+    /* Imágenes en inicio */
+    .inicio-imgs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .inicio-imgs img {
+      width: 220px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #f3bf00;
+    }
+
+    /* Sección operaciones */
+    #resultados pre {
+      background: #222;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    /* Contacto */
+    textarea {
+      resize: vertical;
+    }
+  </style>
 </head>
 <body>
+
 <header>
   <h1>Lamborghini</h1>
   <nav>
@@ -76,8 +130,10 @@
     <a href="#" onclick="mostrarSeccion('simulador')">Simulador</a>
     <a href="#" onclick="mostrarSeccion('contacto')">Contacto</a>
     <a href="#" onclick="mostrarSeccion('info')">Información</a>
+    <a href="#" onclick="mostrarSeccion('operaciones')">Operaciones</a>
   </nav>
 </header>
+
 <main>
   <!-- INICIO -->
   <section id="inicio">
@@ -90,6 +146,7 @@
       <img src="https://cdn.pixabay.com/photo/2017/08/02/13/31/lamborghini-2574951_1280.jpg"  alt="Lamborghini 4">
     </div>
   </section>
+
   <!-- SIMULADOR -->
   <section id="simulador" class="hidden">
     <h2>Simulador de Cotización Lamborghini</h2>
@@ -110,11 +167,7 @@
     </form>
     <div id="cotizaciones"></div>
   </section>
-  <!-- OPERACIONES -->
-<section id="operaciones" class="hidden">
-  <h2>Operaciones Realizadas (Cumple con la Rúbrica)</h2>
-  <div id="resultados"></div>
-</section>
+
   <!-- CONTACTO -->
   <section id="contacto" class="hidden">
     <h2>Contacto</h2>
@@ -129,6 +182,7 @@
     </form>
     <div id="mensajeConfirmacion" style="margin-top:15px;"></div>
   </section>
+
   <!-- INFORMACIÓN -->
   <section id="info" class="hidden">
     <h2>Sobre Lamborghini</h2>
@@ -136,17 +190,18 @@
     <p>Fundado en 1963, Lamborghini ha sido símbolo de exclusividad y tecnología avanzada.</p>
     <img src="https://cdn.pixabay.com/photo/2017/02/16/20/56/lamborghini-2071640_1280.jpg"  alt="Lamborghini Logo" style="width:300px; border-radius:10px; margin-top:15px;">
   </section>
+
+  <!-- OPERACIONES -->
+  <section id="operaciones" class="hidden">
+    <h2>Operaciones Realizadas (Cumple con la Rúbrica)</h2>
+    <div id="resultados"></div>
+  </section>
 </main>
 
-<!-- Etiqueta noscript -->
-<noscript>
-  <div style="text-align:center; padding:15px; background:#222; color:red; font-weight:bold;">
-    Tu navegador no tiene soporte para JavaScript. Por favor, actívalo para disfrutar de esta experiencia.
-  </div>
-</noscript>
-
-<!-- Carga del script externo -->
+<!-- Carga de librería externa -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> 
+
+<!-- Código JS principal -->
 <script src="script.js"></script>
 
 </body>
